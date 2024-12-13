@@ -49,3 +49,45 @@ console.log(longestCommonPrefix(["flower", "flow", "flight"]));
 console.log(longestCommonPrefix(["dog", "racecar", "car"]));
 console.log(longestCommonPrefix(["rain", "racoon", "racing"]));
 console.log(longestCommonPrefix([""]));
+
+// Valid Parentheses
+function isValid(s) {
+  const stack = [];
+  const map = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+
+    if (map[char]) {
+      stack.push(char);
+    } else {
+      const top = stack.pop();
+
+      if (map[top] !== char) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+}
+
+console.log(isValid("()"));
+console.log(isValid("()[]{}"));
+console.log(isValid("(]"));
+console.log(isValid("([])"));
+
+// Merge Two Sorted Lists
+function mergeTwoLists(list1, list2) {
+  /*   const result = [...list1, ...list2];
+  const sorted = result.sort((a, b) => a - b);
+  return sorted;
+  // the codes above can only be used for plain array */
+}
+
+console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
+console.log(mergeTwoLists([], []));
+console.log(mergeTwoLists([], [0]));
