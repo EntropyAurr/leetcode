@@ -1,6 +1,12 @@
-// Two sum
+// 1.Two sum
+function num(num1, num2) {
+  return num1 + num2;
+}
 
-// Roman to Integer
+console.log(num(12, 5));
+console.log(num(-17, 10));
+
+// 13.Roman to Integer
 function romanToInteger(s) {
   const rules = {
     I: 1,
@@ -33,7 +39,7 @@ console.log(romanToInteger("IC"));
 console.log(romanToInteger("VII"));
 console.log(romanToInteger("MXDII"));
 
-// Longest Common Prefix
+// 14.Longest Common Prefix
 function longestCommonPrefix(strs) {
   if (strs.length === 0) return "";
   let prefix = strs[0];
@@ -52,7 +58,7 @@ console.log(longestCommonPrefix(["dog", "racecar", "car"]));
 console.log(longestCommonPrefix(["rain", "racoon", "racing"]));
 console.log(longestCommonPrefix([""]));
 
-// Valid Parentheses
+// 20.Valid Parentheses
 function isValid(s) {
   const stack = [];
   const map = {
@@ -82,7 +88,7 @@ console.log(isValid("()[]{}"));
 console.log(isValid("(]"));
 console.log(isValid("([])"));
 
-// Merge Two Sorted Lists
+// 21.Merge Two Sorted Lists
 class ListNode {
   constructor(val = 0, next = null) {
     this.val = val; // assigns the passed-in "val" to the "val" property of the node
@@ -143,3 +149,37 @@ function printLinkedList(list) {
 }
 
 console.log(printLinkedList(mergedList));
+
+// 26.Remove duplicates from sorted array
+function removeDuplicates(nums) {
+  if (nums.length === 0) return 0;
+
+  let i = 0;
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[j] !== nums[i]) {
+      i++;
+      nums[i] = nums[j];
+    }
+  }
+  return i + 1;
+}
+
+console.log(removeDuplicates([1, 1, 2, 3, 4, 4, 5, 6, 8, 8]));
+console.log(removeDuplicates([1, 1, 2]));
+console.log(removeDuplicates([1, 2, 2, 7]));
+
+// 27.Remove element
+function removeElement(nums, val) {
+  let k = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[k] = nums[i];
+      k++;
+    }
+  }
+
+  return k;
+}
+
+console.log(removeElement([7, 2, 2, 7, 6, 8, 17, 77, 25], 2));
