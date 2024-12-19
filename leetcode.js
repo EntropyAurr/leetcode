@@ -183,3 +183,38 @@ function removeElement(nums, val) {
 }
 
 console.log(removeElement([7, 2, 2, 7, 6, 8, 17, 77, 25], 2));
+
+//28. Find the Index of the first occurence in a String
+function strStr(haystack, needle) {
+  let result = haystack.indexOf(needle);
+  return result;
+}
+
+console.log(strStr("sadbutsad", "sad"));
+console.log(strStr("leetcode", "leeto"));
+console.log(strStr("leetcode", "code"));
+
+// 35. Search Insert Position
+function searchInsert(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return left;
+}
+
+console.log(searchInsert([1, 3, 5, 6], 5));
+console.log(searchInsert([1, 3, 5, 6], 2));
+console.log(searchInsert([1, 3, 5, 6, 8], 7));
+console.log(searchInsert([1, 3, 4, 5, 6], 7));
