@@ -205,8 +205,10 @@ function searchInsert(nums, target) {
     if (nums[mid] === target) {
       return mid;
     } else if (nums[mid] < target) {
+      // target is to the right => update the left
       left = mid + 1;
     } else {
+      // target is to the left => update the right
       right = mid - 1;
     }
   }
@@ -218,3 +220,16 @@ console.log(searchInsert([1, 3, 5, 6], 5));
 console.log(searchInsert([1, 3, 5, 6], 2));
 console.log(searchInsert([1, 3, 5, 6, 8], 7));
 console.log(searchInsert([1, 3, 4, 5, 6], 7));
+
+// 58.Length of the last word
+function lengthOfLastWord(s) {
+  const trimmedString = s.trim();
+  const lastSpace = trimmedString.lastIndexOf(" ");
+  const result = trimmedString.slice(lastSpace + 1);
+
+  return result.length;
+}
+
+console.log(lengthOfLastWord("Hello World"));
+console.log(lengthOfLastWord("   fly me   to   the moon  "));
+console.log(lengthOfLastWord("luffy is still joyboy"));
